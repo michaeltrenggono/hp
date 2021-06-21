@@ -20,7 +20,5 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('leads',  ['uses' => 'LeadController@showAllLeads']);
     $router->post('leads/update/{id}', ['uses' => 'LeadController@update']);
-//    $router->get('leads/accept/{id}', ['uses' => 'LeadController@accept']);
-//    $router->get('leads/decline/{id}', ['uses' => 'LeadController@decline']);
 });
 

@@ -30,9 +30,6 @@ class DatabaseSeeder extends Seeder
 
         $customerIds = DB::table('customers')->pluck('id');
 
-        Log::debug($customerIds);
-        Log::debug($faker->randomElements(["Melbourne 3000", "St Kilda 3182", "Box Hill 3128"])[0]);
-
         foreach (range(1,10) as $index) {
             DB::table('leads')->insert([
                 'customer_id' => $faker->randomElement($customerIds),
