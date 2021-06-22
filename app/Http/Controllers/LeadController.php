@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lead;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class LeadController extends Controller
 {
@@ -11,6 +12,12 @@ class LeadController extends Controller
     public function showAllLeads()
     {
         return Lead::with('customer')->get();
+    }
+
+    public function showAllLeadsByStatus(Request $request)
+    {
+        $status = $request->get("status");
+        return Lead::with('customer')->where('status', $status)->get();
     }
 
     // stuck at CORS blocking preflight for some reason
